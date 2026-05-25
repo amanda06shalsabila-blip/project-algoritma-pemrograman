@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Game</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="logo">
+      Multi<span>Game</span>
+    </div>
+
+    <div class="header-controls">
+      <div class="gradient-frame">
+        <select id="game-mode" onchange="switchGame()" class="click-animation">
+          <option value="matching">🧩 Match </option>
+          <option value="jigsaw">🖼️ Jigsaw Puzzle</option>
+        </select>
+      </div>
+
+      <div class="gradient-frame" id="theme-wrapper">
+        <select id="theme-select" onchange="resetGame()" class="click-animation">
+          <option value="fruits">🍎 Fruits</option>
+          <option value="animals">🐶 Animals</option>
+          <option value="tech">💻 Tech</option>
+        </select>
+      </div>
+
+      <div class="gradient-frame">
+        <button class="btn-modern click-animation" onclick="handleReset()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </header>
+ <main class="game-container animate-fade">
+    <div class="stats-bar">
+        <div class="stat-box">
+            <span class="label">Percobaan</span>
+            <span id="moves" class="value">0</span>
+        </div>
+    </div>
+
+    <!-- AREA GAME MATCHING (Pastikan ID ini ada) -->
+    <div id="matching-area">
+        <div class="grid-container" id="grid"></div>
+    </div>
+
+    <!-- AREA GAME JIGSAW (Pastikan ID ini ada) -->
+    <div id="jigsaw-area" style="display: none;">
+        <div id="jigsaw-grid" class="jigsaw-grid"></div>
+    </div>
+</main>
+  </button>
+  </div>
+  </div>
+  </header>
+  <main class="game-container animate-fade">
+
+    <!-- AREA GAME MATCHING  -->
+    <div id="matching-area">
+      <div class="grid-container" id="grid"></div>
+    </div>
+
+    <!-- AREA GAME JIGSAW  -->
+    <div id="jigsaw-area" style="display: none;">
+      <div id="jigsaw-grid" class="jigsaw-grid"></div>
+    </div>
+  </main>
+
+  <footer class="animate-up">
+    <p>&copy; 2026 Multi Games | Amanda Ika Aulia</p>
+  </footer>
+  <!-- MODAL KEMENANGAN -->
+<div id="win-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="win-stats-container">
+            <div class="win-stat-box">
+            </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

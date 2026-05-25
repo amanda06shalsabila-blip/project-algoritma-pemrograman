@@ -1,0 +1,539 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Header Container */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  animation: floatHeader 4s ease-in-out infinite;
+}
+
+@keyframes floatHeader {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+.header-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow:
+    1px 1px 0px #ff00cc,
+    2px 2px 0px #00d4ff,
+    3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo span {
+  background: linear-gradient(to right, #00d4ff, #ff00cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.gradient-frame {
+  position: relative;
+  padding: 3px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #00d4ff, #ff00cc);
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  transform: perspective(500px) rotateX(5deg);
+  transition: 0.3s;
+}
+
+.gradient-frame:hover {
+  transform: perspective(500px) rotateX(0deg) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+}
+
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #1a1a2e;
+  color: white;
+  padding: 12px 45px 12px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+select option {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+select:hover {
+  background-color: #252545;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.click-animation:active {
+  transform: translateY(3px);
+}
+
+/* Khusus Select agar tidak berantakan di HP */
+select {
+  appearance: none;
+  text-align: center;
+}
+
+/* Responsive agar rapi di HP */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Footer Styling */
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: auto;
+  /* Mendorong footer ke bawah */
+}
+
+/* Main Container */
+.game-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.stat-box .label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.stat-box .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Style untuk Dropdown (Select) */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #1a1a2e !important;
+    color: white !important;
+    padding: 12px 45px 12px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: none !important;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    /* Panah Kustom */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.btn-modern {
+    background: #1a1a2e !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+select:hover, .btn-modern:hover {
+    background: #252545 !important;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.click-animation:active {
+    transform: translateY(3px) !important;
+}
+
+select option {
+    background: #1a1a2e;
+    color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 15px;
+}
+
+@media (min-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 110px);
+    gap: 20px;
+  }
+}
+
+.card {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+}
+
+.matched {
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.6s;
+  pointer-events: none;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-down {
+  animation: slideDown 0.8s ease-out;
+}
+
+.animate-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-fade {
+  animation: fadeIn 1.2s ease-in;
+}
+
+.card-appear {
+  animation: popIn 0.4s ease-out backwards;
+}
+
+/* Container Jigsaw */
+.jigsaw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  /* 3x3 grid */
+  grid-template-rows: repeat(3, 120px);
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.grid-container, .jigsaw-grid {
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.jigsaw-piece {
+  width: 120px;
+  height: 120px;
+  background-size: 360px 360px;
+  /* Ukuran total gambar 3x120 */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.jigsaw-piece:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.jigsaw-piece.selected {
+  outline: 4px solid #00d4ff;
+  box-shadow: 0 0 20px #00d4ff;
+  transform: scale(1.08);
+}
+
+@keyframes solvePuzzle {
+  0% {
+    gap: 5px;
+  }
+
+  100% {
+    gap: 0;
+    border-radius: 0;
+  }
+}
+
+.puzzle-solved {
+  animation: solvePuzzle 0.5s forwards;
+}
+
+/* --- MODAL OVERLAY (Latar Belakang Gelap) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Gelap transparan */
+    backdrop-filter: blur(10px);    /* Efek blur pada game */
+    display: none;                 /* DISEMBUNYIKAN AWALNYA */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Munculkan modal saat class .show ditambahkan oleh JS */
+.modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* --- KOTAK MODAL 3D --- */
+.modal-content {
+    background: #1a1a2e;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    border: 3px solid #00d4ff;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+    max-width: 400px;
+    width: 90%;
+    transform: perspective(1000px) rotateX(20deg) scale(0.7);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.show .modal-content {
+    transform: perspective(1000px) rotateX(0deg) scale(1);
+    opacity: 1;
+}
+
+/* --- ANIMASI PIALA --- */
+.trophy-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.trophy-icon {
+    font-size: 6rem;
+    display: block;
+    position: relative;
+    z-index: 2;
+    animation: bounceTrophy 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px gold);
+}
+
+.trophy-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulseGlow 2s infinite;
+}
+
+/* Keyframes Animasi */
+@keyframes bounceTrophy {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.win-title {
+    color: #00d4ff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.win-message {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.win-stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+}
