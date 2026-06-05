@@ -3,7 +3,7 @@
 ────────────────────────────────────────────*/
 const CATEGORIES = [
   {
-    id: 'Animals', label: 'Animals', icon: '🐾',
+    id: 'Animal', label: 'Animal', icon: '🐾',
     items: [
       { emoji: '🐶', name: 'Dog'   },
       { emoji: '🐱', name: 'Cat'   },
@@ -16,7 +16,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id: 'buah', label: 'Fruits', icon: '🍎',
+    id: 'Fruit', label: 'Fruit', icon: '🍎',
     items: [
       { emoji: '🍎', name: 'Apple'      },
       { emoji: '🍌', name: 'Banana'    },
@@ -29,7 +29,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id: 'sayur', label: 'Vegetable', icon: '🥦',
+    id: 'Vegetable', label: 'Vegetable', icon: '🥦',
     items: [
       { emoji: '🥦', name: 'Broccoli'   },
       { emoji: '🥕', name: 'carrot'    },
@@ -42,7 +42,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id: 'negara', label: 'Country', icon: '🌏',
+    id: 'Country', label: 'Country', icon: '🌏',
     items: [
       { emoji: '🇮🇩', name: 'Indonesian' },
       { emoji: '🇯🇵', name: 'Japan'    },
@@ -68,7 +68,7 @@ const CATEGORIES = [
     ]
   },
   {
-    id: 'olahraga', label: 'Sport', icon: '⚽',
+    id: 'Sport', label: 'Sport', icon: '⚽',
     items: [
       { emoji: '⚽', name: 'Football'   },
       { emoji: '🏀', name: 'Basketball'       },
