@@ -1,90 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puzzle Game</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MultiGame – Score System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-  <header class="main-header">
-    <div class="logo">
-      Multi<span>Game</span>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav>
+    <div class="logo">Multi<span>Game</span></div>
+
+    <div class="game-modes">
+      <button class="mode-pill active-match" id="btn-match" onclick="switchMode('match')">
+        <span class="icon">🧩</span> Match
+      </button>
+      <button class="mode-pill" id="btn-jigsaw" onclick="switchMode('jigsaw')">
+        <span class="icon">🍓</span> Jigsaw
+      </button>
     </div>
 
-    <div class="header-controls">
-      <div class="gradient-frame">
-        <select id="game-mode" onchange="switchGame()" class="click-animation">
-          <option value="matching">🧩 Match </option>
-          <option value="jigsaw">🖼️ Jigsaw Puzzle</option>
-        </select>
-      </div>
+    <button class="btn-reset" onclick="resetGame()">Reset</button>
+  </nav>
 
-      <div class="gradient-frame" id="theme-wrapper">
-        <select id="theme-select" onchange="resetGame()" class="click-animation">
-          <option value="fruits">🍎 Fruits</option>
-          <option value="animals">🐶 Animals</option>
-          <option value="tech">💻 Tech</option>
-        </select>
-      </div>
-
-      <div class="gradient-frame">
-        <button class="btn-modern click-animation" onclick="handleReset()">
-          Reset
-        </button>
-      </div>
+  <!-- ══ STATS BAR ══ -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-label">Score</div>
+      <div class="stat-value cyan" id="score">0</div>
     </div>
-  </header>
- <main class="game-container animate-fade">
-    <div class="stats-bar">
-        <div class="stat-box">
-            <span class="label">Percobaan</span>
-            <span id="moves" class="value">0</span>
-        </div>
+    <div class="stat-card">
+      <div class="stat-label">Trial</div>
+      <div class="stat-value red" id="trial">0</div>
     </div>
-
-    <!-- AREA GAME MATCHING (Pastikan ID ini ada) -->
-    <div id="matching-area">
-        <div class="grid-container" id="grid"></div>
+    <div class="stat-card">
+      <div class="stat-label">Combo</div>
+      <div class="stat-value yellow" id="combo">x1</div>
     </div>
-
-    <!-- AREA GAME JIGSAW (Pastikan ID ini ada) -->
-    <div id="jigsaw-area" style="display: none;">
-        <div id="jigsaw-grid" class="jigsaw-grid"></div>
+    <div class="stat-card">
+      <div class="stat-label">Time</div>
+      <div class="stat-value green" id="timer">0:00</div>
     </div>
-</main>
-  </button>
   </div>
-  </div>
-  </header>
-  <main class="game-container animate-fade">
 
-    <!-- AREA GAME MATCHING  -->
-    <div id="matching-area">
-      <div class="grid-container" id="grid"></div>
+  <!-- ══ MAIN ══ -->
+  <main>
+    <p class="hint" id="hint-text">Click the card to get started!</p>
+
+    <!-- Category Bar (Match only) -->
+    <div class="cat-bar" id="cat-bar">
+      <span class="cat-label">Select a Category</span>
     </div>
 
-    <!-- AREA GAME JIGSAW  -->
-    <div id="jigsaw-area" style="display: none;">
-      <div id="jigsaw-grid" class="jigsaw-grid"></div>
-    </div>
+    <!-- Match Card Grid -->
+    <div class="card-grid" id="match-grid"></div>
+
+    <!-- Jigsaw View — content built dynamically by script.js -->
+    <div id="jigsaw-view"></div>
   </main>
 
-  <footer class="animate-up">
-    <p>&copy; 2026 Multi Games | Amanda Ika Aulia</p>
-  </footer>
-  <!-- MODAL KEMENANGAN -->
-<div id="win-modal" class="modal-overlay">
-    <div class="modal-content">
-        <div class="win-stats-container">
-            <div class="win-stat-box">
-            </div>
-</div>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- ══ WIN OVERLAY ══ -->
+  <div id="win-overlay">
+    <div class="win-box">
+      <div class="win-emoji">🎉</div>
+      <div class="win-title">You Win!</div>
+      <div class="win-sub" id="win-sub">Skor: 0 | Waktu: 0:00</div>
+      <button class="win-btn" onclick="resetGame()">Play Again</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
-
 </html>
