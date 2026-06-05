@@ -16,67 +16,67 @@ const CATEGORIES = [
     ]
   },
   {
-    id: 'buah', label: 'Buah', icon: '🍎',
+    id: 'buah', label: 'Fruits', icon: '🍎',
     items: [
-      { emoji: '🍎', name: 'Apel'      },
-      { emoji: '🍌', name: 'Pisang'    },
-      { emoji: '🍇', name: 'Anggur'    },
-      { emoji: '🍓', name: 'Stroberi'  },
-      { emoji: '🍊', name: 'Jeruk'     },
+      { emoji: '🍎', name: 'Apple'      },
+      { emoji: '🍌', name: 'Banana'    },
+      { emoji: '🍇', name: 'Grape'    },
+      { emoji: '🍓', name: 'Strawberry'  },
+      { emoji: '🍊', name: 'Orange'     },
       { emoji: '🍋', name: 'Lemon'     },
-      { emoji: '🍑', name: 'Persik'    },
-      { emoji: '🍉', name: 'Semangka'  }
+      { emoji: '🍑', name: 'Peach'    },
+      { emoji: '🍉', name: 'Watermelon'  }
     ]
   },
   {
-    id: 'sayur', label: 'Sayuran', icon: '🥦',
+    id: 'sayur', label: 'Vegetable', icon: '🥦',
     items: [
-      { emoji: '🥦', name: 'Brokoli'   },
-      { emoji: '🥕', name: 'Wortel'    },
-      { emoji: '🌽', name: 'Jagung'    },
-      { emoji: '🥒', name: 'Mentimun'  },
-      { emoji: '🍆', name: 'Terong'    },
-      { emoji: '🥬', name: 'Kangkung'  },
-      { emoji: '🧅', name: 'Bawang'    },
-      { emoji: '🍄', name: 'Jamur'     }
+      { emoji: '🥦', name: 'Broccoli'   },
+      { emoji: '🥕', name: 'carrot'    },
+      { emoji: '🌽', name: 'Corn'    },
+      { emoji: '🥒', name: 'Cucumber'  },
+      { emoji: '🍆', name: 'Eggplant'    },
+      { emoji: '🥬', name: 'Spinach'  },
+      { emoji: '🧅', name: 'Onion'    },
+      { emoji: '🍄', name: 'Mold'     }
     ]
   },
   {
-    id: 'negara', label: 'Negara', icon: '🌏',
+    id: 'negara', label: 'Country', icon: '🌏',
     items: [
-      { emoji: '🇮🇩', name: 'Indonesia' },
-      { emoji: '🇯🇵', name: 'Jepang'    },
-      { emoji: '🇺🇸', name: 'Amerika'   },
-      { emoji: '🇫🇷', name: 'Prancis'   },
-      { emoji: '🇧🇷', name: 'Brasil'    },
+      { emoji: '🇮🇩', name: 'Indonesian' },
+      { emoji: '🇯🇵', name: 'Japan'    },
+      { emoji: '🇺🇸', name: 'American'   },
+      { emoji: '🇫🇷', name: 'france'   },
+      { emoji: '🇧🇷', name: 'Brazil'    },
       { emoji: '🇮🇳', name: 'India'     },
       { emoji: '🇰🇷', name: 'Korea'     },
-      { emoji: '🇬🇧', name: 'Inggris'   }
+      { emoji: '🇬🇧', name: 'English'   }
     ]
   },
   {
     id: 'planet', label: 'Planet', icon: '🪐',
     items: [
-      { emoji: '🌍', name: 'Bumi'      },
+      { emoji: '🌍', name: 'Earth'      },
       { emoji: '🔴', name: 'Mars'      },
-      { emoji: '🪐', name: 'Saturnus'  },
-      { emoji: '🔵', name: 'Neptunus'  },
-      { emoji: '⚪', name: 'Bulan'     },
-      { emoji: '☀️', name: 'Matahari'  },
+      { emoji: '🪐', name: 'Saturn'  },
+      { emoji: '🔵', name: 'Neptune'  },
+      { emoji: '⚪', name: 'Moon'     },
+      { emoji: '☀️', name: 'Sun'  },
       { emoji: '🟡', name: 'Venus'     },
-      { emoji: '⚫', name: 'Merkurius' }
+      { emoji: '⚫', name: 'Mercury' }
     ]
   },
   {
-    id: 'olahraga', label: 'Olahraga', icon: '⚽',
+    id: 'olahraga', label: 'Sport', icon: '⚽',
     items: [
-      { emoji: '⚽', name: 'Sepak Bola'   },
-      { emoji: '🏀', name: 'Basket'       },
-      { emoji: '🎾', name: 'Tenis'        },
-      { emoji: '🏊', name: 'Renang'       },
-      { emoji: '🏋️', name: 'Angkat Besi' },
-      { emoji: '🏸', name: 'Bulutangkis'  },
-      { emoji: '🥊', name: 'Tinju'        },
+      { emoji: '⚽', name: 'Football'   },
+      { emoji: '🏀', name: 'Basketball'       },
+      { emoji: '🎾', name: 'Tennis'        },
+      { emoji: '🏊', name: 'Swimming'       },
+      { emoji: '🏋️', name: 'Barbell' },
+      { emoji: '🏸', name: 'Badminton'  },
+      { emoji: '🥊', name: 'Boxing'        },
       { emoji: '🏓', name: 'Ping Pong'    }
     ]
   }
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ══════════════════════════════════════════ */
 function buildCategoryBar() {
   const bar = document.getElementById('cat-bar');
-  bar.innerHTML = '<span class="cat-label">Pilih Kategori</span>';
+  bar.innerHTML = '<span class="cat-label">Select Category</span>';
   CATEGORIES.forEach(cat => {
     const chip = document.createElement('button');
     chip.className = 'cat-chip' + (cat.id === currentCatId ? ' active' : '');
@@ -191,7 +191,7 @@ function buildMatchGrid() {
   const grid = document.getElementById('match-grid');
   grid.innerHTML     = '';
   grid.style.display = 'grid';
-  document.getElementById('hint-text').textContent = 'Klik kartu untuk memulai!';
+  document.getElementById('hint-text').textContent = 'Click the card to start!';
 
   pairs.forEach((item, idx) => grid.appendChild(createMatchCard(item, idx)));
 }
@@ -217,7 +217,7 @@ function flipCard(idx) {
   if (!gameStarted) {
     gameStarted = true;
     startTimer();
-    document.getElementById('hint-text').textContent = 'Temukan pasangan yang cocok!';
+    document.getElementById('hint-text').textContent = 'Find a suitable partner!';
   }
   const cardEls = document.querySelectorAll('.match-card');
   cardEls[idx].classList.add('flipped');
@@ -277,7 +277,7 @@ function buildJigsawGame() {
   draggedPieceId = null;
 
   document.getElementById('hint-text').textContent =
-    `Susun puzzle "${jigsawEmojiName}" — seret potongan ke papan!`;
+    `Jigsaw puzzle "${jigsawEmojiName}" — Drag the pieces onto the board!`;
 
   renderJigsawUI();
 }
@@ -318,7 +318,7 @@ function renderJigsawUI() {
 
   // Build loading indicator
   const view = document.getElementById('jigsaw-view');
-  view.innerHTML = '<div class="jig-loading">⏳ Memuat puzzle...</div>';
+  view.innerHTML = '<div class="jig-loading">⏳ Loading puzzle...</div>';
 
   img.onload = () => {
     URL.revokeObjectURL(objURL);
@@ -443,7 +443,7 @@ function buildJigsawDOM(thumbURL, TW, TH, PS) {
   // ── Difficulty Row ──
   const diffRow = document.createElement('div');
   diffRow.className = 'jigsaw-diff-row';
-  [['3','3×3 (Mudah)'],['4','4×4 (Sedang)'],['5','5×5 (Sulit)']].forEach(([g, lbl]) => {
+  [['3','3×3 (easy)'],['4','4×4 (Medium)'],['5','5×5 (Hard)']].forEach(([g, lbl]) => {
     const btn = document.createElement('button');
     btn.className   = 'diff-btn' + (parseInt(g) === jigsawCols ? ' active' : '');
     btn.textContent = lbl;
@@ -460,7 +460,7 @@ function buildJigsawDOM(thumbURL, TW, TH, PS) {
   // prepend label
   const diffLabel = document.createElement('span');
   diffLabel.className   = 'diff-label';
-  diffLabel.textContent = 'Tingkat Kesulitan:';
+  diffLabel.textContent = 'Difficulty Level:';
   diffRow.prepend(diffLabel);
   view.appendChild(diffRow);
 
@@ -484,7 +484,7 @@ function buildJigsawDOM(thumbURL, TW, TH, PS) {
   progressWrap.className = 'jigsaw-progress-wrap';
   progressWrap.innerHTML = `
     <div class="progress-info">
-      <span id="jig-placed">0</span> / ${jigsawTotal} potongan terpasang
+      <span id="jig-placed">0</span> / ${jigsawTotal} Attached pieces
     </div>
     <div class="progress-bar-bg">
       <div class="progress-bar-fill" id="jig-progress" style="width:0%"></div>
@@ -660,7 +660,7 @@ function winGame() {
   stopTimer();
   const timeStr = document.getElementById('timer').textContent;
   document.getElementById('win-sub').textContent =
-    `Skor: ${score} | Trial: ${trial} | Waktu: ${timeStr}`;
+    `Score: ${score} | Trial: ${trial} | Time: ${timeStr}`;
   document.getElementById('win-overlay').classList.add('show');
 }
 
@@ -678,7 +678,7 @@ function resetStats() {
   document.getElementById('trial').textContent = '0';
   document.getElementById('combo').textContent = 'x1';
   document.getElementById('timer').textContent = '0:00';
-  document.getElementById('hint-text').textContent = 'Klik kartu untuk memulai!';
+  document.getElementById('hint-text').textContent = 'Click the card to start!';
 }
 
 /* ══════════════════════════════════════════
